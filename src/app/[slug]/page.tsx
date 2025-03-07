@@ -32,6 +32,7 @@ const RestaurantPage = async ({ params }: RestaurantPageProps) => {
           oferecer praticidade e sabor em cada detalhe!
         </p>
       </div>
+      {/* Botões de opções de consumo */}
       <div className="grid grid-cols-2 gap-4 pt-14">
         <ConsunptionMethodOption
           slug={slug}
