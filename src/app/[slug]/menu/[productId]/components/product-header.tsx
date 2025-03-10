@@ -28,8 +28,8 @@ const ProductHeader = ({ product }: ProductHeaderProps) => {
       <Image
         src={product.imageUrl}
         alt={product.name}
-        layout="fill"
-        objectFit="cover"
+        fill
+        className="object-contain"
       />
       <Button
         variant="secondary"
