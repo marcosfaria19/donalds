@@ -28,6 +28,7 @@ const ConsunptionMethodOption = ({
             src={imageUrl}
             alt={imageAlt}
             fill
+            sizes="80px"
             className="object-contain"
           />
         </div>

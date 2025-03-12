@@ -25,7 +25,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   return (
     <div className="relative z-50 mt-[-1.5rem] flex flex-auto flex-col overflow-hidden rounded-t-3xl bg-white p-5">
-      {/* Cabeçalho fixo */}
+      {/* Cabeçalho fixo - Restaurante e logo */}
 
       <div className="flex items-center gap-1.5">
         <Image
@@ -40,9 +40,11 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
         </p>
       </div>
 
+      {/* Nome do produto */}
       <h2 className="mt-1 text-xl font-semibold">{product.name}</h2>
 
-      <div className="flex items-center justify-between">
+      {/* Preço e quantidade */}
+      <div className="mt-3 flex items-center justify-between">
         <h3 className="text-xl font-semibold">
           {formatCurrency(product.price)}
         </h3>
@@ -65,7 +67,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
         </div>
       </div>
 
-      {/* Área de conteúdo rolável */}
+      {/* Área de conteúdo rolável - Descrição e ingredientes */}
       <div className="my-3 flex-auto overflow-hidden">
         <ScrollArea className="h-full flex-shrink-0 flex-grow">
           <div className="space-y-6">
@@ -81,14 +83,11 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
                 <ChefHat size={16} />
                 <h4 className="font-semibold">Ingredientes</h4>
               </div>
-              <div className="text-sm text-muted-foreground">
-                {product.ingredients.map((ingredient, index) => (
-                  <p key={index} className="flex items-center gap-2">
-                    <span>•</span>
-                    {ingredient}
-                  </p>
+              <ul className="list-disc px-5 text-sm text-muted-foreground">
+                {product.ingredients.map((ingredient) => (
+                  <li key={ingredient}>{ingredient}</li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </ScrollArea>
