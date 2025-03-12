@@ -32,7 +32,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
   const [quantity, setQuantity] = useState<number>(1);
 
   const handleDecreaseQuantity = () =>
-    setQuantity((prev) => Math.max(prev - 1, 0));
+    setQuantity((prev) => Math.max(prev - 1, 1));
 
   const handleIncreaseQuantity = () => setQuantity((prev) => prev + 1);
 

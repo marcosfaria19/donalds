@@ -28,16 +28,21 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const toggleCart = () => setIsOpen((prev) => !prev);
 
   const addProduct = (product: CartProduct) => {
-    setProducts((prev) => {
-      const productIndex = prev.findIndex((p) => p.id === product.id);
-
-      if (productIndex >= 0) {
-        const updatedProducts = [...prev];
-        updatedProducts[productIndex].quantity += product.quantity;
-        return updatedProducts;
+    setProducts((prevProducts) => {
+      const productIsAlreadyInCart = prevProducts.some(
+        (prevProduct) => prevProduct.id === product.id,
+      );
+      if (!productIsAlreadyInCart) {
+        return [...prevProducts, product];
       }
-
-      return [...prev, product];
+      return prevProducts.map((prevProduct) =>
+        prevProduct.id === product.id
+          ? {
+              ...prevProduct,
+              quantity: prevProduct.quantity + product.quantity,
+            }
+          : prevProduct,
+      );
     });
   };
 
